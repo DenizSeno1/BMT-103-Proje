@@ -44,7 +44,7 @@ int main() {
                         gorev_son_tarih_duzenleme(gorevler,sayac);
                         break;
                     default:
-                        temizleBuffer();
+                        temizle();
                         break;
                 }
                 break;
