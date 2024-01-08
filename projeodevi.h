@@ -21,7 +21,7 @@ typedef struct Gorev {
     char sonTarih[MAX_SON_TARIH];
 } Gorev; //Gerekli olan görev yapısını tanımladık
 
-void temizleBuffer() {
+void temizle() {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 } //Kullanıcı hatalı giriş yaptığında satır sonuna ya da dosya sonuna ulaşana kadar satırı temizleyecek olan fonksiyondur.
@@ -49,11 +49,11 @@ void gorev_sil(Gorev gorevler[], int *sayac) {
     while (1) {
         printf("Silinecek Gorev ID: ");
         if (scanf("%d", &id) == 1) {
-            temizleBuffer(); //enter karakterini siler
+            temizle(); //enter karakterini siler
             break;
         }
         printf("Hatali giris. Bir sayi bekleniyor.\n");
-        temizleBuffer();
+        temizle();
     }
 
     for (int i = 0; i < *sayac; i++) {
@@ -102,13 +102,13 @@ void gorevleri_kaydet(Gorev gorevler[], int sayac) {
 void gorev_ad_duzenleme(Gorev gorevler[],int sayac){
     int id;
     while (1) {
-        printf("Duzenlenecek Görev ID: ");
+        printf("Duzenlenecek Gorev ID: ");
         if (scanf("%d", &id) == 1) {
-            temizleBuffer();
+            temizle();
             break;
         }
         printf("Hatali giris. Bir sayi bekleniyor.\n");
-        temizleBuffer();
+        temizle();
     }
     for (int i = 0; i < sayac; ++i) { //girilen idnin görev yapısını bulmaya yarıyan for döngüsü
        if (gorevler[i].id==id) {
@@ -122,13 +122,13 @@ void gorev_ad_duzenleme(Gorev gorevler[],int sayac){
 void gorev_detay_duzenleme(Gorev gorevler[],int sayac){
     int id;
     while (1) {
-        printf("Duzenlenecek Görev ID: ");
+        printf("Duzenlenecek Gorev ID: ");
         if (scanf("%d", &id) == 1) {
-            temizleBuffer();
+            temizle();
             break;
         }
         printf("Hatali giris. Bir sayi bekleniyor.\n");
-        temizleBuffer();
+        temizle();
     }
     for (int i = 0; i < sayac; ++i) {//girilen idnin görev yapısını bulmaya yarıyan for döngüsü
         if (gorevler[i].id==id) {
@@ -142,13 +142,13 @@ void gorev_detay_duzenleme(Gorev gorevler[],int sayac){
 void gorev_son_tarih_duzenleme(Gorev gorevler[],int sayac){
     int id;
     while (1) {
-        printf("Duzenlenecek Görev ID: ");
+        printf("Duzenlenecek Gorev ID: ");
         if (scanf("%d", &id) == 1) {
-            temizleBuffer(); // Hatalı girişi temizle
+            temizle(); // Hatalı girişi temizle
             break;
         }
         printf("Hatali giris. Bir sayi bekleniyor.\n");
-        temizleBuffer();
+        temizle();
     }
     for (int i = 0; i < sayac; ++i) {//girilen idnin görev yapısını bulmaya yarıyan for döngüsü
         if (gorevler[i].id==id) {
@@ -205,7 +205,7 @@ int alSecim() {
     printf("Secim: ");
     while (scanf("%d", &secim) != 1) {
         printf("Hatali giris. Bir sayi bekleniyor. Tekrar deneyin: ");
-        temizleBuffer();
+        temizle();
     }
     return secim;
 }
